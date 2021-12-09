@@ -1,19 +1,13 @@
-const express = require('express')
+// index.js
+const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
-const http = require('http');
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
+app.use(bodyParser.urlencoded({ extended: true }));
 
-
-app.get('/', function (req, res) {
-  res.send('hello world')
-})
-
-app.post('/sms', (req, res) => {
-  const twiml = new MessagingResponse();
-
-  twiml.message('The Robots are coming! Head for the hills!');
-
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
+app.post('/post-test', (req, res) => {
+    console.log('Got body:', req.body);
+    res.sendStatus(200);
 });
-app.listen(3000)
+
+app.listen(8080, () => console.log(`Started server at http://localhost:8080!`));
