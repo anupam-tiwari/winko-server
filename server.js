@@ -16,4 +16,4 @@ app.use('/Login', (req, res) => {
   });
 });
 
-app.listen(8080, () => console.log(`Started server at http://localhost:8080!`));
+app.listen(process.env.PORT || 3000, () => console.log(`Started server at http://localhost:8080!`));
