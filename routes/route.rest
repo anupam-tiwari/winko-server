@@ -1,0 +1,12 @@
+POST http://localhost:3000/subscribers
+Content-Type: : application/json
+
+{
+    "name":"anupam",
+    "number": "1",
+    "subdata": "anupam"
+}
+
+###
+
+GET http://localhost:3000/subscribers
