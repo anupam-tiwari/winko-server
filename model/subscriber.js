@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const subscriberSchema = new mongoose.Schema({
+    _id:{
+        type: Number, 
+        required: true
+    }, 
     name: {
         type: String,
         required: true 

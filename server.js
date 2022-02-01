@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const subscribersRouter = require('./routes/subscribers')
+require('dotenv').config();
+const cors = require('cors')
 const DBURL = process.env.DBURL
 
 const connectionParams={
@@ -20,12 +22,12 @@ mongoose.connect(DBURL, connectionParams)
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-
+app.use(cors())
 
 app.use('/subscribers', subscribersRouter)
 
 app.post('/Number', (req, res) => {
-    console.log('Got body:', req.body.Body);
+    console.log('Got body:', req.body);
     res.sendStatus(200);
 });
 
@@ -35,4 +37,4 @@ app.use('/Test', (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3000, () => console.log(`Started server at http://localhost:8080!`));
+app.listen(process.env.PORT || 4000, () => console.log(`Started server`));

@@ -1,0 +1,4 @@
+Person text 
+1. activate - create user 
+2. deactivate - remove user
+3. 
