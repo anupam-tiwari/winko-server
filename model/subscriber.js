@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 
 const subscriberSchema = new mongoose.Schema({
     _id:{
-        type: Number, 
+        type: String, 
         required: true
     }, 
     name: {
         type: String,
-        required: true 
+        required: true, 
+        default: "User"
     }, 
     number: {
         type: String, 
@@ -17,6 +18,11 @@ const subscriberSchema = new mongoose.Schema({
         type: Date, 
         required: true, 
         default: Date.now
+    }, 
+    location: {
+        type: String, 
+        required: true, 
+        default: "USA"
     }
 })
 

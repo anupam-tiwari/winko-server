@@ -27,8 +27,10 @@ app.use(cors())
 app.use('/subscribers', subscribersRouter)
 
 app.post('/Number', (req, res) => {
-    console.log('Got body:', req.body);
+    resbody = req.body.Body.split(',')
+    console.log('Got body:', req.body.Body);
     res.sendStatus(200);
+    console.log(resbody)
 });
 
 app.use('/Test', (req, res) => {
