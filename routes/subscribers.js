@@ -80,7 +80,7 @@ async function DeleteUser(req,res){
     console.log(req.body.From)
     try{
         user = await Subscriber.findByIdAndDelete(req.body.From)
-        res.status(201).json(deleted)
+        res.status(201)
     }
     catch(err){
         res.status(500).json({ message: err.message})
