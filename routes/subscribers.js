@@ -42,7 +42,7 @@ async function AddUser(req, res, resbody){
     })
     try{
         const newSubscriber = await subscriber.save()
-        res.status(201)
+        res.status(201).json({message: "registered"})
     } catch (err){
         res.status(500).json({message: err.message})
     }
@@ -80,7 +80,7 @@ async function DeleteUser(req,res){
     console.log(req.body.From)
     try{
         user = await Subscriber.findByIdAndDelete(req.body.From)
-        res.status(201)
+        res.status(201).json({message: "unregistered"})
     }
     catch(err){
         res.status(500).json({ message: err.message})
