@@ -42,7 +42,7 @@ async function AddUser(req, res, resbody){
     })
     try{
         const newSubscriber = await subscriber.save()
-        res.status(201).json(OK)
+        res.status(201)
     } catch (err){
         res.status(500).json({message: err.message})
     }
