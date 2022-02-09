@@ -18,11 +18,11 @@ router.get('/:id', getSubscriber, (req, res) => {
 
 router.post('/', async (req, res) => {
     let resbody = req.body.Body.split(',')
-    if(resbody[0] == "register"){
+    if(resbody[0].toLowerCase() == "register"){
         console.log("login user")
         AddUser(req,res, resbody)
     }
-    else if (resbody[0] == "unregister"){
+    else if (resbody[0].toLowerCase() == "unregister"){
         console.log("unregister user")
         DeleteUser(req, res)
     }    
