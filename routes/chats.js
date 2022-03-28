@@ -57,7 +57,6 @@ router.post('/', async(req,res) => {
             catch (err){
                 res.status(500).json({message: err.message})
             }
-            return res.status(404).json({ message: "resgistered"})
         }
     }
     
