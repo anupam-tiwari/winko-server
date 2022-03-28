@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const subscribersRouter = require('./routes/subscribers')
+const chatRouter = require('./routes/chats')
 require('dotenv').config();
 const cors = require('cors')
 const DBURL = process.env.DBURL
@@ -26,6 +27,8 @@ app.use(cors())
 
 app.use('/subscribers', subscribersRouter)
 
+app.use('/chat', chatRouter)
+
 app.post('/Number', (req, res) => {
     resbody = req.body.Body.split(',')
     console.log('Got body:', req.body.Body);
@@ -40,7 +43,7 @@ app.use('/Test', (req, res) => {
 });
 
 app.post('/body', (req, res) => {
-  console.log('Got body:', req.body);
+  console.log('Got body:', req.body.data);
   res.sendStatus(200);
   console.log(resbody)
 });
