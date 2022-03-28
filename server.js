@@ -39,4 +39,10 @@ app.use('/Test', (req, res) => {
   });
 });
 
+app.post('/body', (req, res) => {
+  console.log('Got body:', req.body);
+  res.sendStatus(200);
+  console.log(resbody)
+});
+
 app.listen(process.env.PORT || 4000, () => console.log(`Started server`));
