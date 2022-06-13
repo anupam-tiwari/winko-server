@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const subscribersRouter = require('./routes/subscribers')
 const chatRouter = require('./routes/chats')
+const finaceRouter = require('./routes/finance')
 require('dotenv').config();
 const cors = require('cors')
 const DBURL = process.env.DBURL
@@ -28,6 +29,8 @@ app.use(cors())
 app.use('/subscribers', subscribersRouter)
 
 app.use('/chat', chatRouter)
+
+app.use('/finance', finaceRouter)
 
 app.post('/Number', (req, res) => {
     resbody = req.body.Body.split(',')
